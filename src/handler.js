@@ -44,7 +44,7 @@ const getNoteByIdHandler = (request, h) => {
 
   const note = notes.filter((n) => n.id === id)[0]
 
-  if (note !== 'undefined') {
+  if (`${note}` !== 'undefined') {
     return {
       status: 'Success',
       data: {
@@ -91,7 +91,7 @@ const deleteNoteByIdHandler = (request, h) => {
   if (index !== -1) {
     notes.splice(index, 1)
     const response = h.response({
-      status: 200,
+      status: 'Success',
       message: 'Catatan berhasil dihapus'
     })
     response.code = 200
